@@ -1,13 +1,20 @@
 <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
   {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
 </button>
-<mat-horizontal-stepper [linear]="isLinear" #stepper>
-  <mat-step [stepControl]="firstFormGroup">
+<mat-horizontal-stepper [linear]="isLinear" #stepper labelPosition="bottom">
+    <ng-template matStepperIcon="phone">
+        <mat-icon>call_end</mat-icon>
+      </ng-template>
+  <mat-step [stepControl]="firstFormGroup" state="phone">
     <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>Fill out your name</ng-template>
+      <ng-template matStepLabel>Fill out name</ng-template>
       <mat-form-field>
         <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+
       </mat-form-field>
+            <br>
+      <button mat-button (click)="openDialog()">Open dialog</button> <br>
+      <div>User input in dialog is: <span style="color: red;">{{userInput}}</span></div>
       <div>
         <button mat-button matStepperNext>Next</button>
       </div>

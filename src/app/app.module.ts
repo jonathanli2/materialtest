@@ -7,10 +7,14 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDialogModule} from '@angular/material';
+import { MyDialogComponent } from './mydialog.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MyDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -19,9 +23,12 @@ import {MatInputModule} from '@angular/material/input';
     MatStepperModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatIconModule,
+    MatDialogModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[MyDialogComponent]
 })
 export class AppModule { }
