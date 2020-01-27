@@ -2,19 +2,50 @@
   {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
 </button>
 <mat-horizontal-stepper [linear]="isLinear" #stepper labelPosition="bottom">
-    <ng-template matStepperIcon="phone">
-        <mat-icon>call_end</mat-icon>
-      </ng-template>
+  <ng-template matStepperIcon="phone">
+    <mat-icon>call_end</mat-icon>
+  </ng-template>
   <mat-step [stepControl]="firstFormGroup" state="phone">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Fill out name</ng-template>
       <mat-form-field>
         <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-
       </mat-form-field>
-            <br>
+      <br>
+
       <button mat-button (click)="openDialog()">Open dialog</button> <br>
       <div>User input in dialog is: <span style="color: red;">{{userInput}}</span></div>
+      <p></p>
+
+      <mat-form-field>
+        Reactive form control test
+        <input type="text" matInput [formControl]="myReactFormControl"><br>
+      </mat-form-field>
+      Output: <span style="color: blue;">{{myReactFormControl.value}}</span>
+      <br>
+      <mat-form-field>
+        Template form control test
+        <input type="text" matInput [(ngModel)]="myTemplateformControlValue" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+      Output: <span style="color: blue;">{{myTemplateformControlValue}}</span>
+      <br>
+
+      <form [formGroup]="myFormGroup" (ngSubmit)="onFormSubmit()">
+        <div>
+          <label for="username">Username</label>
+          <input type="text" id="username" formControlName="username">
+        </div>
+        <div>
+          <label for="email">email</label>
+          <input type="text" id="email" formControlName="email">
+        </div>
+        <button mat-button (click)="groupButtonClicked()">Click Me</button> <br>
+        <button mat-button type="submit">Form Submit</button> <br>
+
+      </form>
+      <p></p><p>
+        <app-hero-form></app-hero-form>
+      </p><br>
       <div>
         <button mat-button matStepperNext>Next</button>
       </div>

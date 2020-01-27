@@ -9,13 +9,18 @@ import { MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material';
-import { MyDialogComponent } from './mydialog.component';
+import {MyDialogComponent} from './mydialog.component';
+import {HeroFormComponent} from './hero/hero-form.component';
+import {MatSelectModule, MatSelect} from '@angular/material/select';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MyDialogComponent
+    MyDialogComponent,
+    HeroFormComponent
   ],
+
   imports: [
     BrowserModule,
     FormsModule,
@@ -25,8 +30,11 @@ import { MyDialogComponent } from './mydialog.component';
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSelectModule,
+    MatAutocompleteModule
   ],
+  
   providers: [],
   bootstrap: [AppComponent],
   entryComponents:[MyDialogComponent]
