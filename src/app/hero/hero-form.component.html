@@ -24,8 +24,8 @@
         <mat-form-field>
             <input type="text" matInput [formControl]="myControl" placeholder="Pick one" [matAutocomplete]="auto">
         </mat-form-field>
-        <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let option of options" [value]="option">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
                 {{ option }}
             </mat-option>
         </mat-autocomplete>
